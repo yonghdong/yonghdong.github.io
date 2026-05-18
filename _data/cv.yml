@@ -1,0 +1,51 @@
+cv:
+  name: Yonghoon Dong
+  label: Integrated M.S./Ph.D. Student
+  email: yonghoon.dong@kaist.ac.kr
+  location: Seoul, South Korea
+  image: ""
+  summary: Integrated M.S./Ph.D. student at KAIST AI working on reinforcement learning, generative modeling, and robotics.
+
+  social_networks:
+    - network: GitHub
+      username: yonghdong
+    - network: LinkedIn
+      username: yonghoon-dong
+    - network: X
+      username: yhoon96
+
+  sections:
+    Education:
+      - institution: KAIST
+        location: Seoul, South Korea
+        url: https://gsai.kaist.ac.kr/
+        area: Kim Jaechul Graduate School of AI
+        studyType: Integrated M.S./Ph.D.
+        start_date: 2025
+        end_date: Present
+        highlights:
+          - "Advisor: Prof. Jinwoo Shin"
+
+      - institution: Yonsei University
+        location: Seoul, South Korea
+        area: "Computer Science (Double Major: Mathematics)"
+        studyType: B.S.
+        start_date: 2020
+        end_date: 2025
+        highlights: []
+
+      - institution: Uppsala University
+        location: Uppsala, Sweden
+        area: Computer Science
+        studyType: Exchange Student
+        start_date: 2023-08
+        end_date: 2024-01
+        highlights: []
+
+    Experience:
+      - company: RLWRLD
+        position: Research Intern, RL Team
+        location: Seoul, South Korea
+        start_date: 2025-11
+        end_date: Present
+        summary: Research on reinforcement learning for robotics foundation models.

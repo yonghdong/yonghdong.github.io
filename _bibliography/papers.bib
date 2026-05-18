@@ -1,0 +1,30 @@
+---
+---
+
+@article{dong2026trqam,
+  abbr        = {Preprint},
+  bibtex_show = {true},
+  title       = {Trust Region Q Adjoint Matching},
+  author      = {Dong, Yonghoon and Lee, Kyungmin and Kim, Changyeon and Kim, Jaehyuk and Shin, Jinwoo},
+  journal     = {arXiv preprint arXiv:2605.27079},
+  year        = {2026},
+  selected    = {true},
+  arxiv       = {2605.27079},
+  code        = {https://github.com/yonghdong/trqam},
+  website     = {https://yonghdong.github.io/blog/trqam/},
+  abstract    = {Off-policy reinforcement learning of pretrained flow policies remains challenging due to the instability of optimization arising from the multi-step sampling process. Recently, Q-learning with Adjoint Matching (QAM) addressed this issue by reformulating into a memoryless stochastic optimal control (SOC) problem with a learned critic. However, QAM inherits a fundamental fragility of critic-guided improvement: small critic errors are amplified when critics are ill-conditioned, often leading to model collapse. This paper introduces Trust Region Q-Adjoint Matching (TRQAM), a stable off-policy fine-tuning algorithm that adaptively controls the path-space KL with pretrained flow policies through projected dual descent. Specifically, we optimize the trust-region parameter $\lambda$ in SOC dynamics, and theoretically show that the path-space KL can be represented by a closed-form function of $\lambda$. As a result, our method can precisely control the exact deviation from pretrained flow policies, achieving stable off-policy RL. Through experiments on 50 OGBench tasks, TRQAM consistently outperforms prior arts in both offline RL and offline-to-online RL. In particular, TRQAM achieves an overall success rate of 68\% in offline RL, substantially improves the strongest baseline at 46\%.}
+}
+
+@article{kim2026rldx1,
+  abbr        = {Tech Report},
+  bibtex_show = {true},
+  title       = {RLDX-1 Technical Report},
+  author      = {Kim*, Dongyoung and Jang*, Huiwon and Koo†, Myungkyu and Jang†, Suhyeok and Kim†, Taeyoung and Dong, Yonghoon and Shin, Jinwoo},
+  journal     = {arXiv preprint arXiv:2605.03269},
+  year        = {2026},
+  selected    = {true},
+  arxiv       = {2605.03269},
+  code        = {https://github.com/RLWRLD/RLDX-1},
+  website     = {https://www.rlwrld.ai/ko/rldx-1},
+  abstract    = {(* Project Lead, † Research Lead.) While Vision-Language-Action models (VLAs) have shown remarkable progress toward human-like generalist robotic policies through the versatile intelligence (i.e., broad scene understanding and language-conditioned generalization) inherited from pre-trained Vision-Language Models, they still struggle with complex real-world tasks requiring broader functional capabilities (e.g., motion awareness, long-term memory, and physical sensing). To address this, we introduce RLDX-1, a general-purpose robotic policy for dexterous manipulation built on the Multi-Stream Action Transformer (MSAT), an architecture that unifies these capabilities by integrating heterogeneous modalities through modality-specific streams with cross-modal joint self-attention. RLDX-1 further combines this architecture with system-level design choices, including data synthesis for rare manipulation scenarios, learning procedures specialized for human-like manipulation, and inference optimizations for real-time deployment. Through empirical evaluation, we show that RLDX-1 consistently outperforms recent frontier VLAs (e.g., $\pi_{0.5}$ and GR00T N1.6) across both simulation benchmarks and real-world tasks that require broad functional capabilities beyond general versatility. In particular, RLDX-1 shows superiority in ALLEX humanoid tasks by achieving success rates of 86.8\% while $\pi_{0.5}$ and GR00T N1.6 achieve around 40\%, highlighting the ability of RLDX-1 to control a high-DoF humanoid robot under diverse functional demands. Together, these results position RLDX-1 as a promising step toward reliable VLAs for complex, contact-rich, and dynamic real-world dexterous manipulation.}
+}

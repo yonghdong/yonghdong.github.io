@@ -41,17 +41,11 @@ ninja.data = [{
             window.location.href = "/blog/trqam/";
           
         },
-      },{id: "news-graduated-from-yonsei-university-with-b-s-in-computer-science-double-major-in-mathematics",
-          title: 'Graduated from Yonsei University with B.S. in Computer Science (double major in Mathematics)....',
-          description: "",
-          section: "News",},{id: "news-started-integrated-m-s-ph-d-at-kaist-ai-advised-by-prof-jinwoo-shin",
-          title: 'Started Integrated M.S./Ph.D. at KAIST AI, advised by Prof. Jinwoo Shin.',
-          description: "",
-          section: "News",},{id: "news-started-as-research-intern-at-rlwrld-on-the-rl-team",
-          title: 'Started as Research Intern at RLWRLD on the RL Team.',
-          description: "",
-          section: "News",},{id: "news-co-authored-rldx-1-technical-report-released-arxiv-code",
+      },{id: "news-co-authored-rldx-1-technical-report-released-arxiv-code",
           title: 'Co-authored RLDX-1 Technical Report released. arXiv · code',
+          description: "",
+          section: "News",},{id: "news-released-trust-region-q-adjoint-matching-trqam-a-stable-off-policy-rl-algorithm-for-pretrained-flow-policies-blog-code",
+          title: 'Released Trust Region Q Adjoint Matching (TRQAM), a stable off-policy RL algorithm for...',
           description: "",
           section: "News",},{
         id: 'social-email',

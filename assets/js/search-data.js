@@ -44,7 +44,7 @@ ninja.data = [{
       },{id: "news-co-authored-rldx-1-technical-report-released-arxiv-code",
           title: 'Co-authored RLDX-1 Technical Report released. arXiv · code',
           description: "",
-          section: "News",},{id: "news-released-trust-region-q-adjoint-matching-trqam-a-stable-off-policy-rl-algorithm-for-pretrained-flow-policies-blog-code",
+          section: "News",},{id: "news-released-trust-region-q-adjoint-matching-trqam-a-stable-off-policy-rl-algorithm-for-pretrained-flow-policies-arxiv-blog-code",
           title: 'Released Trust Region Q Adjoint Matching (TRQAM), a stable off-policy RL algorithm for...',
           description: "",
           section: "News",},{

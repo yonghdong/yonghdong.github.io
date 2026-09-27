@@ -43,6 +43,14 @@ cv:
         highlights: []
 
     Experience:
+      - company: Karlsruhe Institute of Technology (KIT)
+        position: Visiting Scholar, Autonomous Learning Robots Lab
+        location: Karlsruhe, Germany
+        url: https://alr-kit.de/
+        start_date: 2026-10
+        end_date: 2026-12
+        summary: Visiting research on robot learning, hosted by Prof. Gerhard Neumann.
+
       - company: RLWRLD
         position: Research Intern, RL Team
         location: Seoul, South Korea

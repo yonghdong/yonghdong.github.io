@@ -50,6 +50,9 @@ ninja.data = [{
           section: "News",},{id: "news-trust-region-q-adjoint-matching-trqam-has-been-accepted-to-neurips-2026-arxiv-blog-code",
           title: 'Trust Region Q Adjoint Matching (TRQAM) has been accepted to NeurIPS 2026. arXiv...',
           description: "",
+          section: "News",},{id: "news-i-will-join-the-autonomous-learning-robots-alr-lab-at-kit-as-a-visiting-scholar-from-october-to-december-2026-hosted-by-prof-gerhard-neumann",
+          title: 'I will join the Autonomous Learning Robots (ALR) Lab at KIT as a...',
+          description: "",
           section: "News",},{
         id: 'social-email',
         title: 'email',

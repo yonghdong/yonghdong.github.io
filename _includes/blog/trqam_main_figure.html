@@ -1,0 +1,361 @@
+<style>
+  .tf-anim {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+  }
+  .tf-anim text {
+    font-family:
+      "Fira Sans",
+      "Source Sans Pro",
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      sans-serif;
+    font-weight: 500;
+    text-anchor: middle;
+  }
+  .tf-anim .tf-title {
+    fill: #000;
+    font-size: 50px;
+  }
+  .tf-anim .tf-label {
+    fill: #000;
+    font-size: 50px;
+  }
+  .tf-anim .tf-lambda {
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-size: 64px;
+    fill: #000;
+  }
+  html[data-theme="dark"] .tf-anim .tf-title {
+    fill: #e6e6e6;
+  }
+  .tf-anim .tf-box {
+    fill: #ededeb;
+    stroke: #000;
+    stroke-width: 7;
+  }
+  .tf-anim .tf-box-ours {
+    fill: #fbe8d6;
+    stroke: #ef8f00;
+    stroke-width: 7;
+  }
+  .tf-anim .tf-grey {
+    fill: none;
+    stroke: #7a7770;
+    stroke-width: 11;
+    stroke-linecap: butt;
+  }
+  .tf-anim .tf-red {
+    fill: none;
+    stroke: #b07070;
+    stroke-width: 10;
+  }
+  .tf-anim .tf-red-head {
+    fill: #b07070;
+  }
+  .tf-anim .tf-orange {
+    fill: none;
+    stroke: #ef8f00;
+    stroke-width: 10;
+  }
+  .tf-anim .tf-orange-head {
+    fill: #ef8f00;
+  }
+  .tf-anim .tf-link {
+    stroke: #000;
+    stroke-width: 9;
+  }
+  html[data-theme="dark"] .tf-anim .tf-link,
+  html[data-theme="dark"] .tf-anim .tf-link-head {
+    stroke: #e6e6e6;
+    fill: #e6e6e6;
+  }
+
+  /* ---- one-shot reveal sequence (restarted by toggling .tf-play) ---- */
+  .tf-anim .tf-content {
+    transition: opacity 0.6s ease;
+  }
+  .tf-anim .tf-content.tf-hidden {
+    opacity: 0;
+  }
+  .tf-anim .tf-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .tf-anim .tf-fade {
+    opacity: 0;
+  }
+  .tf-anim.tf-play .tf-draw {
+    animation: tf-draw var(--dur, 1.4s) ease-in-out var(--delay, 0s) forwards;
+  }
+  .tf-anim.tf-play .tf-fade {
+    animation: tf-fade var(--dur, 0.5s) ease-out var(--delay, 0s) forwards;
+  }
+  @keyframes tf-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes tf-fade {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* ---- continuous motion after the reveal ---- */
+  .tf-anim .tf-wobble-up,
+  .tf-anim .tf-wobble-down {
+    transform-box: view-box;
+    transform-origin: 885px 552px;
+  }
+  .tf-anim.tf-play .tf-wobble-up {
+    animation: tf-wobble-a 5s linear 5s infinite;
+  }
+  .tf-anim.tf-play .tf-wobble-down {
+    animation: tf-wobble-b 5s linear 5s infinite;
+  }
+  /* start and end at 0deg so the loop has no jump; sine-like easing via many stops */
+  @keyframes tf-wobble-a {
+    0% {
+      transform: rotate(0deg);
+    }
+    12.5% {
+      transform: rotate(-2.1deg);
+    }
+    25% {
+      transform: rotate(-3deg);
+    }
+    37.5% {
+      transform: rotate(-2.1deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    62.5% {
+      transform: rotate(2.1deg);
+    }
+    75% {
+      transform: rotate(3deg);
+    }
+    87.5% {
+      transform: rotate(2.1deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes tf-wobble-b {
+    0% {
+      transform: rotate(0deg);
+    }
+    12.5% {
+      transform: rotate(2.1deg);
+    }
+    25% {
+      transform: rotate(3deg);
+    }
+    37.5% {
+      transform: rotate(2.1deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    62.5% {
+      transform: rotate(-2.1deg);
+    }
+    75% {
+      transform: rotate(-3deg);
+    }
+    87.5% {
+      transform: rotate(-2.1deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  .tf-anim.tf-play .tf-band-up {
+    animation: tf-band-up 2.4s ease-in-out 8.6s infinite alternate;
+  }
+  .tf-anim.tf-play .tf-band-down {
+    animation: tf-band-down 2.4s ease-in-out 8.6s infinite alternate;
+  }
+  @keyframes tf-band-up {
+    to {
+      transform: translate(-4px, -9px);
+    }
+  }
+  @keyframes tf-band-down {
+    to {
+      transform: translate(4px, 9px);
+    }
+  }
+  .tf-anim .tf-lambda-g {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .tf-anim.tf-play .tf-lambda-g {
+    animation: tf-pulse 2.4s ease-in-out 8.6s infinite alternate;
+  }
+  @keyframes tf-pulse {
+    to {
+      transform: scale(1.18);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tf-anim .tf-draw {
+      stroke-dashoffset: 0;
+      animation: none !important;
+    }
+    .tf-anim .tf-fade {
+      opacity: 1;
+      animation: none !important;
+    }
+    .tf-anim * {
+      animation: none !important;
+    }
+  }
+</style>
+
+<svg class="tf-anim tf-play" id="trqam-main-anim" viewBox="0 0 2000 1010" role="img" aria-labelledby="tf-anim-title">
+  <title id="tf-anim-title">
+    Animated overview. A pretrained flow policy trajectory, naive critic-guided fine-tuning drifting away from it, and TRQAM keeping a controlled
+    deviation through lambda.
+  </title>
+
+  <g class="tf-content">
+    <!-- Titles -->
+    <text class="tf-title" x="305" y="70">Pretrained</text>
+    <text class="tf-title" x="305" y="148">flow policy</text>
+    <text class="tf-title" x="1005" y="70">Naive critic-guided</text>
+    <text class="tf-title" x="1005" y="148">fine-tuning causes drift</text>
+    <text class="tf-title" x="1690" y="70">TRQAM internalizes</text>
+    <text class="tf-title" x="1690" y="148">trust-region control</text>
+
+    <!-- Panel boxes -->
+    <rect class="tf-box" x="6" y="185" width="592" height="812" rx="42" />
+    <rect class="tf-box" x="703" y="185" width="594" height="812" rx="42" />
+    <rect class="tf-box-ours" x="1390" y="185" width="594" height="812" rx="42" />
+
+    <!-- Panel 1: pretrained trajectory -->
+    <path
+      class="tf-grey tf-draw"
+      pathLength="1"
+      style="--delay: 0.3s; --dur: 1.4s"
+      d="M 77 737 C 77 620, 180 525, 305 525 C 430 525, 527 430, 527 316"
+    />
+    <text class="tf-label tf-fade" style="--delay: 1.2s" x="292" y="852">useful</text>
+    <text class="tf-label tf-fade" style="--delay: 1.2s" x="292" y="932">pretrained policy</text>
+
+    <!-- Link 1 -->
+    <g class="tf-fade" style="--delay: 1.8s">
+      <line class="tf-link" x1="600" y1="540" x2="652" y2="540" />
+      <polygon class="tf-link-head" points="645,512 700,540 645,568" />
+    </g>
+
+    <!-- Panel 2: pretrained trajectory, then drift -->
+    <path
+      class="tf-grey tf-draw"
+      pathLength="1"
+      style="--delay: 2.2s; --dur: 1.3s"
+      d="M 770 737 C 770 620, 873 525, 998 525 C 1123 525, 1220 430, 1220 316"
+    />
+    <g class="tf-wobble-up">
+      <path class="tf-red tf-draw" pathLength="1" style="--delay: 3.4s; --dur: 1s" d="M 885 552 C 950 510, 1000 450, 1028 390" />
+      <polygon
+        class="tf-red-head tf-fade"
+        style="--delay: 4.3s; --dur: 0.25s"
+        points="0,0 -44,-20 -44,20"
+        transform="translate(1040 368) rotate(-65)"
+      />
+    </g>
+    <g class="tf-wobble-down">
+      <path class="tf-red tf-draw" pathLength="1" style="--delay: 3.6s; --dur: 1s" d="M 885 552 C 980 540, 1060 550, 1145 630" />
+      <polygon
+        class="tf-red-head tf-fade"
+        style="--delay: 4.5s; --dur: 0.25s"
+        points="0,0 -44,-20 -44,20"
+        transform="translate(1165 650) rotate(43)"
+      />
+    </g>
+    <text class="tf-label tf-fade" style="--delay: 4.2s" x="1000" y="872">destructive drift</text>
+    <text class="tf-label tf-fade" style="--delay: 4.2s" x="1000" y="952">e.g., QAM, QAM-E</text>
+
+    <!-- Link 2 -->
+    <g class="tf-fade" style="--delay: 5s">
+      <line class="tf-link" x1="1299" y1="540" x2="1338" y2="540" />
+      <polygon class="tf-link-head" points="1332,512 1387,540 1332,568" />
+    </g>
+
+    <!-- Panel 3: controlled deviation -->
+    <path
+      class="tf-grey tf-draw"
+      pathLength="1"
+      style="--delay: 5.5s; --dur: 1.3s"
+      d="M 1447 755 C 1470 640, 1560 548, 1680 545 C 1800 542, 1895 440, 1895 335"
+    />
+    <g class="tf-band-up">
+      <path
+        class="tf-orange tf-draw"
+        pathLength="1"
+        style="--delay: 6.6s; --dur: 1.3s"
+        d="M 1440 758 C 1462 630, 1545 524, 1680 520 C 1795 516, 1858 445, 1878 362"
+      />
+      <polygon
+        class="tf-orange-head tf-fade"
+        style="--delay: 7.8s; --dur: 0.25s"
+        points="0,0 -40,-18 -40,18"
+        transform="translate(1886 336) rotate(-75)"
+      />
+    </g>
+    <g class="tf-band-down">
+      <path
+        class="tf-orange tf-draw"
+        pathLength="1"
+        style="--delay: 6.8s; --dur: 1.3s"
+        d="M 1446 760 C 1480 660, 1570 572, 1690 568 C 1810 563, 1870 470, 1902 398"
+      />
+      <polygon
+        class="tf-orange-head tf-fade"
+        style="--delay: 8s; --dur: 0.25s"
+        points="0,0 -40,-18 -40,18"
+        transform="translate(1914 372) rotate(-66)"
+      />
+    </g>
+    <g class="tf-fade" style="--delay: 8.2s">
+      <g class="tf-lambda-g"><text class="tf-lambda" x="1870" y="600">&#955;</text></g>
+    </g>
+    <text class="tf-label tf-fade" style="--delay: 6.4s; text-anchor: start" x="1448" y="322">controlled</text>
+    <text class="tf-label tf-fade" style="--delay: 6.4s; text-anchor: start" x="1448" y="406">deviation</text>
+    <text class="tf-label tf-fade" style="--delay: 8.2s" x="1690" y="865">adapts via</text>
+    <text class="tf-label tf-fade" style="--delay: 8.2s" x="1690" y="948">dual descent</text>
+  </g>
+</svg>
+
+<script>
+  (function () {
+    var svg = document.getElementById("trqam-main-anim");
+    if (!svg) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var content = svg.querySelector(".tf-content");
+    var busy = false;
+    function replay() {
+      if (busy) return;
+      busy = true;
+      content.classList.add("tf-hidden");
+      setTimeout(function () {
+        svg.classList.remove("tf-play");
+        void svg.getBoundingClientRect();
+        svg.classList.add("tf-play");
+        content.classList.remove("tf-hidden");
+        busy = false;
+      }, 650);
+    }
+    svg.addEventListener("click", replay);
+    setInterval(replay, 16000);
+  })();
+</script>

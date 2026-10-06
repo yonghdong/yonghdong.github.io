@@ -841,7 +841,7 @@ ${math}
           .map((s) => s.trim()[0]);
         initials = initials.join(".") + ".";
       }
-      return template.replace("${F}", firsts).replace("${L}", last).replace("${I}", initials).trim(); // in case one of first or last was empty
+      return template.replace("${F}", (firsts || "").trim()).replace("${L}", last).replace("${I}", initials).trim(); // in case one of first or last was empty
     });
     if (names.length > 1) {
       var str = name_strings.slice(0, names.length - 1).join(sep);
@@ -907,7 +907,7 @@ ${math}
       var cite = title_string(ent);
       cite += link_string(ent) + "<br>";
       if (ent.author) {
-        cite += author_string(ent, "${L}, ${I}", ", ", " and ");
+        cite += author_string(ent, "${F} ${L}", ", ", ", and ");
         if (ent.year || ent.date) {
           cite += ", ";
         }
@@ -943,7 +943,7 @@ ${math}
       cite += link_string(ent);
       cite += "<br>";
 
-      var a_str = author_string(ent, "${I} ${L}", ", ") + ".";
+      var a_str = author_string(ent, "${F} ${L}", ", ") + ".";
       var v_str = venue_string(ent).trim() + " " + ent.year + ". " + doi_string(ent, true);
 
       if ((a_str + v_str).length < Math.min(40, ent.title.length)) {

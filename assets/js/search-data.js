@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "post-trust-region-q-adjoint-matching-stable-off-policy-rl-for-flow-policies",
         
-          title: "Trust Region Q-Adjoint Matching: Stable Off-Policy RL for Flow Policies",
+          title: "Trust Region Q Adjoint Matching: Stable Off-Policy RL for Flow Policies",
         
         description: "A new stable off-policy fine-tuning algorithm for pretrained flow-based policies, combining trust-region principles with stochastic optimal control.",
         section: "Posts",

@@ -64,7 +64,7 @@ ninja.data = [{
           section: "News",},{id: "news-i-will-join-the-autonomous-learning-robots-alr-lab-at-kit-as-a-visiting-scholar-from-october-to-december-2026-hosted-by-prof-gerhard-neumann",
           title: 'I will join the Autonomous Learning Robots (ALR) Lab at KIT as a...',
           description: "",
-          section: "News",},{id: "news-released-q-learning-with-scalar-adjoint-matching-sqam-which-fine-tunes-flow-policies-with-off-policy-rl-without-per-step-vector-jacobian-products-arxiv-blog-project-page-code",
+          section: "News",},{id: "news-released-q-learning-with-scalar-adjoint-matching-sqam-which-fine-tunes-flow-policies-with-off-policy-rl-without-per-step-vector-jacobian-products-arxiv-blog-code",
           title: 'Released Q-Learning with Scalar Adjoint Matching (SQAM), which fine-tunes flow policies with off-policy...',
           description: "",
           section: "News",},{

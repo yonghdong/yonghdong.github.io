@@ -934,18 +934,17 @@
     if (ent) {
       var cite = title_string(ent);
       cite += link_string(ent) + "<br>";
+      // Authors. Venue, Year.  (year last, as in plainnat)
       if (ent.author) {
-        cite += author_string(ent, "${F} ${L}", ", ", ", and ");
-        if (ent.year || ent.date) {
-          cite += ", ";
-        }
+        cite += author_string(ent, "${F} ${L}", ", ", ", and ") + ". ";
       }
-      if (ent.year || ent.date) {
-        cite += (ent.year || ent.date) + ". ";
-      } else {
-        cite += ". ";
+      var venue = venue_string(ent).trim().replace(/\.$/, "");
+      var year = ent.year || ent.date;
+      if (venue && year) {
+        cite += venue + ", " + year + ".";
+      } else if (venue || year) {
+        cite += (venue || year) + ".";
       }
-      cite += venue_string(ent);
       cite += doi_string(ent);
       return cite;
       /*var cite =  author_string(ent, "${L}, ${I}", ", ", " and ");

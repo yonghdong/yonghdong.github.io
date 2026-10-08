@@ -226,7 +226,6 @@ d-appendix {
       text-align: center;
     }
   }
-
 }
 
 @media (min-width: 1025px) {
@@ -312,4 +311,9 @@ d-appendix {
       text-align: center;
     }
   }
+}
+
+// Reserve the byline height so the page does not shift when distill fills it in.
+d-byline {
+  min-height: 84px;
 }
